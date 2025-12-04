@@ -24,8 +24,9 @@ window.onload = (() => {
         showTodoTask();
     }
 });
-// checks for invalid inputs
+
 addTodo.addEventListener("click", (e) => {
+    // checks for invalid inputs
     if(!textInput.value || !dateInput.value || !timeInput.value){
         message.innerText = "Input field cannot be blank";
         message.style.background = "red";
@@ -65,9 +66,10 @@ function timeOut(){
         popup.classList.remove("active-pop");
     }, 3000);
 }
-//builds elements dynamically
+// add new task
 function showTodoTask() {
     todoTask.innerHTML = "";
+    //builds elements dynamically
     tasks.forEach((todo, index) => {
         const div = document.createElement("div");
         div.classList.add("item");
@@ -83,7 +85,7 @@ function showTodoTask() {
     })
 }
 
-//delete selected todo task from recent tasks
+//delete selected todo task 
 document.addEventListener("click", (event) => {
     if(event.target.classList.contains("delete-todo") && recentTaskBtn.classList.contains("recent-task-btn")){
         const item = event.target.closest(".item");
@@ -95,3 +97,4 @@ document.addEventListener("click", (event) => {
         
     };
 });
+
